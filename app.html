@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            margin :auto;
+            height:300px;
+            width:500px;
+            background-color: rgb(195, 255, 255);
+            border-radius:10px;
+            align-items: center;
+            text-align: center;
+            margin-top:200px;
+            box-shadow: 2px 2px 2px grey;;
+        }
+        .hidden{
+            margin :auto;
+            height:300px;
+            width:500px;
+            background-color: rgb(195, 255, 255);
+            border-radius:10px;
+            align-items: center;
+            text-align: center;
+            margin-top:200px;
+            box-shadow: 2px 2px 2px grey;
+            display:none;
+        }
+       
+        h5{
+            padding-top:20px;
+        
+            font-size:30px;
+        }
+        input{
+            margin:auto;
+            height:30px;
+            width:200px;
+            border-radius: 10px;;
+        }
+        #loginbtn{
+            margin-top:30px;
+            margin-left:30px;
+            height:50px;
+            width:100px;
+            background-color: orange;
+            border-radius:15px;
+        }
+        #logoutbtn{
+            margin-top:30px;
+            margin-left:30px;
+            height:50px;
+            width:100px;
+            background-color: orange;
+            border-radius:15px;
+        }
+        span{
+            color:green;
+            text-transform: capitalize;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="loginpage">
+        <h5>Welcome To the Bank</h5>
+        <input type="text" placeholder="Username" id="user"><br>
+        <button onclick="login()" id="loginbtn">Login</button>
+
+</div>
+<div class="container hidden" id="accountpage">
+    <h5>Welcome, <span id="userdisplay"></span></h5>
+    <P> Current Balance is <span id="balance">0</span></P>
+    <input type="number" placeholder="Amount"><br>
+    <button onclick="logout()" id="logoutbtn">Logout</button>
+</div>
+<script>
+
+function login(){
+
+    const username= document.getElementById("user").value;
+    if(username){
+
+        document.getElementById("loginpage").classList.add("hidden");
+        document.getElementById("accountpage").classList.remove("hidden");
+        document.getElementById("userdisplay").textContent=username;
+        document.getElementById("balance").value=null;
+    }
+    else{
+        alert("Enter a Valid Username")
+    }
+} 
+function logout(){
+    document.getElementById("loginpage").classList.remove("hidden");
+        document.getElementById("accountpage").classList.add("hidden");
+        document.getElementById("user").value="";
+}
+
+</script>
+</body>
+</html>
